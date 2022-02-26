@@ -1,0 +1,81 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+# Importing dataset
+health <- read.csv("C:\\Users\\srava\\Documents\\Ryerson university\\Capstone project\\Maternal Health Risk Data Set.csv")
+
+head(health);
+#Determining class of variables 
+str(health);
+#Missing values 
+is.na(health)
+#Mean median minimum maximum 
+summary(health);
+# Standard deviation
+sd(health$ï..Age)
+sd(health$SystolicBP)
+sd(health$BS)
+sd(health$DiastolicBP)
+sd(health$BodyTemp)
+sd(health$HeartRate)
+
+
+## Histograms for variables 
+hist(health$ï..Age)
+hist(health$SystolicBP)
+hist(health$DiastolicBP)
+hist(health$BS)
+hist(health$BodyTemp)
+hist(health$HeartRate)
+
+
+#Boxplots 
+boxplot(health$ï..Age,main="Age" )
+
+boxplot(health$SystolicBP,main="SystolicBP")
+boxplot(health$DiastolicBP,main="DiastolicBP")
+boxplot(health$BS,main="BS")
+boxplot(health$BodyTemp,main="BodyTemp")
+boxplot(health$HeartRate,main="HeartRate")
+
+
+
+# correlation coefficient 
+install.packages("corrplot")
+library(corrplot)
+
+health2 <- health;
+health2[health2$RiskLevel == "high risk","RiskLevel"] <- 2
+health2[health2$RiskLevel == "low risk","RiskLevel"] <- 0
+health2[health2$RiskLevel == "mid risk","RiskLevel"] <- 1
+head(health2)
+str(health2)
+
+M<-cor(health2)
+head(round(health2,2))
+ 
+# visualizing correlogram
+# as circle
+corrplot(M, method="circle")
+health2$RiskLevel<- as.numeric(as.character(health2$RiskLevel))
+
+
+
+
+
+
+
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
