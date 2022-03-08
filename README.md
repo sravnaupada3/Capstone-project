@@ -6,7 +6,7 @@ The objective of this project is to determine the factors responsible for high r
 Reducing the mortality rate of pregnant women is one of the main goals for the WHO . And improving preganant women health and wellbeing is very important for the future . So develpoing machine learning techniques to detect maternal health and predicting the high risk pregnancies help hospitals and health care workers take precautionary steps to reduce the mortality rate especially for low income group countries where maternal mortality is high .
 # Dataset used : 	https://archive.ics.uci.edu/ml/datasets/Maternal+Health+Risk+Data+Set
 
-# Lnguages used : R 
+# Languages used : R 
 # Tabel of Contents : 
 1. Objective 
 2. Literatue Review 
